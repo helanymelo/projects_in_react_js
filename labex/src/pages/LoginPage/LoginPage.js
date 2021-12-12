@@ -5,7 +5,8 @@ import { LoginForm } from "./styles";
 
 const LoginPage =()=>{
     return(
-        <><Typography>LOGIN</Typography>
+        <>
+        <Typography variant='h4'>LOGIN</Typography>
         <LoginForm>
             <TextField label={'E-mail'} type={'email'}/>
             <TextField label={'Senha'} type={'password'}/>

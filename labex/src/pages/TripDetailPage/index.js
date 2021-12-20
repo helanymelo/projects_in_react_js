@@ -8,7 +8,7 @@ const TripPage =()=>{
     
     return(
         <div>
-            <PageTitle width='50px' title={'Detalhes da viagem'}/>
+            <PageTitle fontSize={{width:30}} title={'DETALHES DA VIAGEM'}/>
             <ContentContainer>
             <TripInfo/>
             <CandidateList/>

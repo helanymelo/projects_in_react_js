@@ -11,9 +11,8 @@ const LoginPage =()=>{
             <TextField label={'E-mail'} type={'email'}/>
             <TextField label={'Senha'} type={'password'}/>
             <Button type={'submit'} variant={'contained'} color={'primary'}>Acessar</Button>
-
-            
-        </LoginForm></>
+        </LoginForm>
+        </>
     )
 }
 

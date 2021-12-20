@@ -7,6 +7,7 @@ import CreateTripPage from './pages/CreateTripPage/CreateTripPage';
 import TripDetailPage from "./pages/TripDetailPage/index";
 import TripListPage from './pages/TripListPage/index';
 import styled from 'styled-components';
+import { CssBaseline } from '@material-ui/core';
 
 const AppContainer = styled.div`
   display:flex;
@@ -16,16 +17,12 @@ const AppContainer = styled.div`
   
 `;
   
-
-
-
-
-
 function App() {
   return (
    
       <BrowserRouter>
         <AppContainer>
+          <CssBaseline/>
             <Routes>
               <Route exact path='/' element={<HomePage/>}/>
               <Route exact path='/login' element={<LoginPage/>}/>

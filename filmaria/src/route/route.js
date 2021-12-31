@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Filme from "../pages/Filme/Filme";
 import Favoritos from "../pages/Favoritos/Favoritos"
+import React from "react";
 
 
 import Home from "../pages/Home/Home";

@@ -2,32 +2,42 @@ import {useState, useEffect} from 'react';
 import '../Form.css'
 
 
-const useForm = validadeInfo =>{
-    const[values, setValues]=useState({
-        name:'',
-        email:'',
-        password:'',
-        password2:''
-    })
 
-    const[erros, setErros]=useState({})
+const useForm = (callback, validateInfo) => {
+  const [values, setValues] = useState({
+    username: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleChange = (e) =>{
-        const {name, value} = e.target
-        setValues({
-            ...values,
-            [name]:value
-        })
-    }
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value
+    });
+  };
 
-    const handleSubmit = e =>{
-        e.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
 
-        setErros(validadeInfo(values))
-    }
+    setErrors(validateInfo(values));
+    setIsSubmitting(true);
+  };
 
+  useEffect(
+    () => {
+      if (Object.keys(errors).length === 0 && isSubmitting) {
+        callback();
+      }
+    },
+    [errors]
+  );
 
-    return {handleChange, values, handleSubmit, erros}
-}
+  return { handleChange, handleSubmit, values, errors };
+};
 
 export default useForm;

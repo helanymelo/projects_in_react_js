@@ -8,9 +8,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from 'axios';
 import { useForm } from "../../hooks/useForm";
+import { useTripsList } from "../../hooks/useTripsList";
 
 const Application =()=>{
-    const [trips, setTrips] = useState([])
+    const trips = useTripsList()
     const [form, onChangeInput] = useForm({
         name:"",
         age:0,
@@ -20,16 +21,6 @@ const Application =()=>{
         trip:""
     })
 
-    
-
-    
-    useEffect(()=>{
-        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips")
-        .then((res)=>{
-            
-            setTrips(res.data.trips)
-        })
-    },[])
 
     const onSubmitApplication = (e) =>{
         e.preventDefault()
@@ -42,7 +33,7 @@ const Application =()=>{
             country: form.country
         }
        
-    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips/${form.trip.id}/apply`, body)
+    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-melo/trips/${form.trip.id}/apply`, body)
     }
     console.log(form)
     

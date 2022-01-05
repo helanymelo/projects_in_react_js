@@ -1,9 +1,9 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// export const LoginForm = styled.form`
-//     display: grid;
-//     gap:8px;
-//     align-items: center;
-//     margin-top: 50px;
+export const LoginForm = styled.form`
+    display: grid;
+    gap:8px;
+    align-items: center;
+    margin-top: 50px;
 
-// `
+`

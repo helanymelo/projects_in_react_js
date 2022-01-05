@@ -1,7 +1,7 @@
 import "./styles.css";
 import Route from "./route/route";
-import  "react-toastify/dist/ReactToastify.css";
 import React, { ToastContainer } from "react-toastify";
+
 
 // https://sujeitoprogramador.com/r-api/?api=filmes
 

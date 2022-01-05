@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import "./favoritos.css";
 import {toast} from "react-toastify";
@@ -27,7 +27,7 @@ const Favoritos = () => {
   return (
     <div className="meus-filmes">
       <h1>Meus Filmes Favoritos</h1>
-      {filmes.length === 0 && <span>Você não possui filmes salvos <>😢</> </span>}
+     
       <ul>
         {filmes.map((item) => {
           return (
@@ -45,6 +45,6 @@ const Favoritos = () => {
       </ul>
     </div>
   );
-};
+      }
 
 export default Favoritos;

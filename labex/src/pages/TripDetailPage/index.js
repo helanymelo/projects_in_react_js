@@ -1,3 +1,10 @@
+ 
+import React from 'react'
+
+const TripDetailPage = () => {
+    return (
+        
+            <h1>TripDetailPage</h1>
 import React from "react";
 import PageTitle from "../../components/PageTitle";
 import CandidateList from "./CandidateList";

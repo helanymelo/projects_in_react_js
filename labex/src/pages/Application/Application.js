@@ -86,7 +86,7 @@ const Application =()=>{
                             <MenuItem value={""}></MenuItem>
                             <MenuItem value={"Brasil"}>Brasil</MenuItem>
                             <MenuItem value={"Argentina"}>Argentina</MenuItem>
-                            <MenuItem value={"Estados Unido"}>Estados Unidos</MenuItem>
+                            <MenuItem value={"Estados Unidos"}>Estados Unidos</MenuItem>
                         </Select>
                 </FormControl>
 

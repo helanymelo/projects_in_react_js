@@ -17,17 +17,27 @@ export const ButtonContainer = styled.div`
 `
 
 export const StyleContainer = styled.div`
-        width:100%;
-        height:1000px;
+        width:100vw;
+        height:100vh;
         
     
 `
 export const Title = styled.div`
         font-size:50px;
         color: #2b34a1;
-        text-align:left;
-        padding: 10px;
-        background-color:#000;
+        text-align:center;
+        align-items:center;
+        background-color:black;
+        top:0;
+        right:0;
+        left:0;
+        position:fixed;
+        
+        
+      
+        
+        
+        
        
 
         

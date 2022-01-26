@@ -8,21 +8,23 @@ import TripDetailPage from "./pages/TripDetailPage/index";
 import TripListPage from './pages/TripListPage/index';
 import styled from 'styled-components';
 import { CssBaseline } from '@material-ui/core';
+import GlobalStyle from "./global/globalStyle"
 
-const AppContainer = styled.div`
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  padding:16px;
+// const AppContainer = styled.div`
+//   display:flex;
+//   flex-direction: column;
+//   align-items:center;
+//   padding:16px;
+//   margin: 0;
   
-`;
+// `;
   
 function App() {
   return (
    
    
       <BrowserRouter>
-        <AppContainer>
+        
           <CssBaseline/>
             <Routes>
               <Route exact path='/' element={<HomePage/>}/>
@@ -31,8 +33,9 @@ function App() {
               <Route exact path='/criar-viagem' element={<CreateTripPage/>}/>
               <Route exact path='/detalhes-viagens' element={<TripDetailPage/>}/>
               <Route exact path='/lista-viagem' element={<TripListPage/>}/>
-            </Routes>   
-            </AppContainer>   
+              
+            </Routes> 
+          <GlobalStyle/>
         </BrowserRouter>
      
       

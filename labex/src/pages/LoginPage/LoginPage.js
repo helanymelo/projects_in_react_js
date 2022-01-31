@@ -1,15 +1,12 @@
 import React from "react";
+import {Typography, TextField, Button} from "@material-ui/core"
 import {useForm} from "../../hooks/useForm";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
-import PageTitle from '../../components/PageTitle/'
 import { LoginForm } from "./styles";
 
 
 const LoginPage =()=>{
-    const paperStyle={padding:20, height:'70vh', width:'300px', margin:'50px auto'}
-    const avatarStyle={backgroundColor:'#2b34a1'}
-    const btnStyle ={margin:'20px auto'}
     const [form, onChangeInput] = useForm({email:" ", password:" "})
     const navigate = useNavigate()
 
@@ -26,7 +23,7 @@ const LoginPage =()=>{
             
         }
         
-    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/gabarito/login",body)
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/login",body)
         .then((res)=>{
             console.log(res.data.token)
             window.localStorage.setItem('token', res.data.token)
@@ -38,13 +35,26 @@ const LoginPage =()=>{
 
   
    return(
-       <>
-        <PageTitle title={'Login'}/>
-            <LoginForm>
-               <TextField/> 
+       <div>
+           <Typography variant="h4" align={'center'} gutterBottom>Labex</Typography>
+            <LoginForm onSubmit={onSubmitLogin}>
+                <TextField label={'E-mail'} 
+                    type={'email'}>E-mail
+                    onChange={onChangeInput}
+                    value={form['email']}
+                    name={'e-mail'}
+                </TextField>
 
+                <TextField label={'Senha'} 
+                    type={'password'}>Senha
+                    onChange={onChangeInput}
+                    value={form['password']}
+                    name={'password'}
+                </TextField>
+                <Button type={'submit'}>Submit</Button>
             </LoginForm>
-       </>
+               
+       </div>
     )
 }
 

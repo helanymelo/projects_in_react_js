@@ -10,10 +10,6 @@ const LoginPage =()=>{
     const [form, onChangeInput] = useForm({email:" ", password:" "})
     const navigate = useNavigate()
 
-
-    
-
-
     const onSubmitLogin = (event) =>{
         event.preventDefault()
         console.log(form)
@@ -23,11 +19,11 @@ const LoginPage =()=>{
             
         }
         
-    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/login",body)
+        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-melo/login", body)
         .then((res)=>{
-            console.log(res.data.token)
+            
             window.localStorage.setItem('token', res.data.token)
-            navigate('lista-viagem')
+            navigate('/lista-viagem')
         })
     }
     

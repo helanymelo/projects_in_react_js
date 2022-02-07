@@ -1,9 +1,45 @@
 import styled from 'styled-components';
 
+export const FormContainer = styled.div`
+    
+    width: 100%;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+`
+
 export const LoginForm = styled.form`
-    display: grid;
-    gap:8px;
+    border:1px solid #666666;
+    display: flex;
+    flex-direction:column;
+    width:400px;
+    height:70vh;
     align-items: center;
-    margin-top: 50px;
+    justify-content:center;
+    margin: 60px;
+    
+
+    input{
+        width:300px;
+        height: 30px;
+        display: flex;
+        border-radius:5px;
+        border:1px solid #999;
+
+        margin:8px;
+        justify-content:center;
+        align-items:center;
+    }
+
+    Button{
+        width:300px;
+        height: 30px;
+        display: flex;
+        border-radius:5px;
+
+    }
 
 `

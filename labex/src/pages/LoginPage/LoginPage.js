@@ -1,57 +1,55 @@
-import React from "react";
-import {Typography, TextField, Button} from "@material-ui/core"
-import {useForm} from "../../hooks/useForm";
-import axios from "axios";
-import {useNavigate} from 'react-router-dom';
-import { LoginForm } from "./styles";
+import React from 'react'
+import { TextField, Button } from '@material-ui/core'
+import { LoginForm, FormContainer } from './styles'
 
+import { useForm } from '../../hooks/useForm'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-const LoginPage =()=>{
-    const [form, onChangeInput] = useForm({email:" ", password:" "})
-    const navigate = useNavigate()
+const LoginPage = () => {
+  const navigate = useNavigate()
+  const [form, onChangeInput] = useForm({
+    email: '',
+    password: ''
+  })
 
-    const onSubmitLogin = (event) =>{
-        event.preventDefault()
-        console.log(form)
-        const body = {
-            email: form.email,
-            password: form.password
-            
-        }
-        
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-melo/login", body)
-        .then((res)=>{
-            
-            window.localStorage.setItem('token', res.data.token)
-            navigate('/lista-viagem')
-        })
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
+    const body = {
+      email: form.email,
+      password: form.password
+      
     }
-    
-    
-
+    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/login', body)
+    .then((response) => {
+      window.localStorage.setItem('token', response.data.token)
+      navigate('/lista-viagem')
+    })
+  }
   
-   return(
-       <div>
-           <Typography variant="h4" align={'center'} gutterBottom>Labex</Typography>
-            <LoginForm onSubmit={onSubmitLogin}>
-                <TextField label={'E-mail'} 
-                    type={'email'}>E-mail
-                    onChange={onChangeInput}
-                    value={form['email']}
-                    name={'e-mail'}
-                </TextField>
+  console.log(form)
+  
 
-                <TextField label={'Senha'} 
-                    type={'password'}>Senha
-                    onChange={onChangeInput}
-                    value={form['password']}
-                    name={'password'}
-                </TextField>
-                <Button type={'submit'}>Submit</Button>
-            </LoginForm>
-               
-       </div>
-    )
+  return <FormContainer>
+    <LoginForm onSubmit={onSubmitLogin}>
+      <h3>LOGIN</h3>
+      <input
+        label={'Email'}
+        type={'email'}
+        onChange={onChangeInput}
+        value={form['email']}
+        name={'email'}
+      />
+      <input
+        label={'Senha'}
+        type={'password'}
+        onChange={onChangeInput}
+        value={form['password']}
+        name={'password'}
+      />
+      <Button variant={'contained'} color={'primary'} type={'submit'}>Entrar</Button>
+    </LoginForm>
+  </FormContainer>
 }
 
-export default LoginPage;
+export default LoginPage

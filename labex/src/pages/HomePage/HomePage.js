@@ -1,8 +1,9 @@
 import React from "react";
 import { Button} from "@material-ui/core";
-import {ButtonContainer} from "./styles";
+import {ButtonContainer, Title, Container} from "./styles";
 import {Link} from "react-router-dom";
-import PageTitle from "../../components/PageTitle";
+
+
 
 
 
@@ -10,19 +11,22 @@ import PageTitle from "../../components/PageTitle";
 const HomePage = ()=>{
    
     return(   
-        <div>
-              <PageTitle title={'LabeX'}/>
+        <Container>
+            <Title>LabeX 
+                
+            </Title>
             <ButtonContainer>
                 <Link to={'/login'}>
-                    <Button variant={'outlined'} color={'secondary'}width='100%'>Administrador</Button>
+                    <Button variant={'outlined'} color={'primary'}width='200px'>Administrador</Button>
                  </Link>
                  <Link to={'/cadastro'}>
-                     <Button variant={'outlined'} color={'secondary'} width='100%'>Cadidatar-me</Button>
+                     <Button variant={'outlined'} color={'primary'} width='200px'>Cadidatar-me</Button>
                 </Link>                     
             </ButtonContainer>
-             
+        </Container>                                
+            
         
-        </div>     
+        
             
               
     )

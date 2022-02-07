@@ -10,41 +10,46 @@ import axios from 'axios';
 import { useForm } from "../../hooks/useForm";
 
 const Application =()=>{
-    const [trips, setTrips] = useState([])
+    const [trips, setTrips]=useState([])
     const [form, onChangeInput] = useForm({
         name:"",
         age:0,
         textApplication:"",
         profession:"",
         country:"",
-        trip:""
+        trip:null
     })
 
-    
-
-    
-    useEffect(()=>{
-        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips")
-        .then((res)=>{
-            
-            setTrips(res.data.trips)
-        })
-    },[])
 
     const onSubmitApplication = (e) =>{
         e.preventDefault()
-        console.log(form)
+        
         const body ={
+            
             name: form.name,
             age: form.age,
             applicationText: form.applicationText,
             profession: form.profession,
             country: form.country
         }
-       
-    axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips/${form.trip.id}/apply`, body)
+        
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips/${form.trip.id}/apply`)
     }
     console.log(form)
+    
+
+    
+
+  
+  
+    useEffect(()=>{
+        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips')
+        .then((res)=>{
+            setTrips(res.data.trips)
+        })
+    }, [])
+
+
     
     return(
         <div>
@@ -86,7 +91,7 @@ const Application =()=>{
                             <MenuItem value={""}></MenuItem>
                             <MenuItem value={"Brasil"}>Brasil</MenuItem>
                             <MenuItem value={"Argentina"}>Argentina</MenuItem>
-                            <MenuItem value={"Estados Unido"}>Estados Unidos</MenuItem>
+                            <MenuItem value={"Estados Unidos"}>Estados Unidos</MenuItem>
                         </Select>
                 </FormControl>
 

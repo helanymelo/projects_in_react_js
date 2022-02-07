@@ -1,55 +1,55 @@
-import { Button, TextField, Grid, Paper, Avatar} from "@material-ui/core";
-import React from "react";
-import LockRoundedIcon from '@mui/icons-material/LockRounded';
-import {useForm} from "../../hooks/useForm";
+import React from 'react'
+import { TextField, Button } from '@material-ui/core'
+import { LoginForm, FormContainer } from './styles'
 
+import { useForm } from '../../hooks/useForm'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
+const LoginPage = () => {
+  const navigate = useNavigate()
+  const [form, onChangeInput] = useForm({
+    email: '',
+    password: ''
+  })
 
-const LoginPage =()=>{
-    const paperStyle={padding:20, height:'70vh', width:'300px', margin:'50px auto'}
-    const avatarStyle={backgroundColor:'#2b34a1'}
-    const btnStyle ={margin:'20px auto'}
-    const {form, onChangeInput} = useForm({email:"", password:""})
-
-
-    const onSubmitLogin = (event) =>{
-        event.preventDefault()
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
+    const body = {
+      email: form.email,
+      password: form.password
+      
     }
-
+    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/login', body)
+    .then((response) => {
+      window.localStorage.setItem('token', response.data.token)
+      navigate('/lista-viagem')
+    })
+  }
   
-   return(
-        <>
-        <Grid onSubmit={onSubmitLogin}>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                <Avatar style={avatarStyle}><LockRoundedIcon/></Avatar>
-                    <h3>Sign In</h3>
-                </Grid>
-                <TextField label={"Email"} 
-                type={"email"}
-                onChange={onChangeInput}
-                value={form["email"]}
-                name={"email"}/>
+  console.log(form)
+  
 
-                <TextField label={"password"} 
-                type={"password"}
-                 onChange={onChangeInput}
-                 value={form["password"]}
-                 name={"password"}/>
-                <Grid>
-                    <Button type={"submit"} 
-                        color={"primary"} 
-                        variant={"contained"} 
-                        fullWidth 
-                        style={btnStyle}>
-                            Acessar
-                    </Button>
-                </Grid>
-            </Paper>
-        </Grid>
-        
-        </>
-    )
+  return <FormContainer>
+    <LoginForm onSubmit={onSubmitLogin}>
+      <h3>LOGIN</h3>
+      <input
+        label={'Email'}
+        type={'email'}
+        onChange={onChangeInput}
+        value={form['email']}
+        name={'email'}
+      />
+      <input
+        label={'Senha'}
+        type={'password'}
+        onChange={onChangeInput}
+        value={form['password']}
+        name={'password'}
+      />
+      <Button variant={'contained'} color={'primary'} type={'submit'}>Entrar</Button>
+    </LoginForm>
+  </FormContainer>
 }
 
-export default LoginPage;
+export default LoginPage

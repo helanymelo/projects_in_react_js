@@ -7,9 +7,9 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
-        background: url("https://img.besthqwallpapers.com/Uploads/27-9-2020/142133/space-background-gray-background-with-planets-abstraction-space-art-creative-space-background.jpg");
+        ${'' /* background: url("https://img.besthqwallpapers.com/Uploads/27-9-2020/142133/space-background-gray-background-with-planets-abstraction-space-art-creative-space-background.jpg");
         background-size:cover;
-        
+         */}
         
     }
 

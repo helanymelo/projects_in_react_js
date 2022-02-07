@@ -6,10 +6,10 @@ export const useTripsList = () =>{
     
 
     useEffect(()=>{
-        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-melo/trips")
+        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trips")
         .then((res)=>{
-        setTrips(res.data.trips)
-        console.log(res.data.trip)
+            setTrips(res.data.trips)
+            console.log(res.data.trip)
         })
     },[])
 

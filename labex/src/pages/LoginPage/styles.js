@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-    
     width: 100%;
-    
     display: flex;
     justify-content:center;
     align-items:center;
@@ -28,7 +26,6 @@ export const LoginForm = styled.form`
         display: flex;
         border-radius:5px;
         border:1px solid #999;
-
         margin:8px;
         justify-content:center;
         align-items:center;

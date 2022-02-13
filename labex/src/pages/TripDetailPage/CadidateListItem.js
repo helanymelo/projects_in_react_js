@@ -7,14 +7,14 @@ import CheckIcon from '@mui/icons-material/Check';
 
 
 
-const CadidateListItem =()=>{
+const CadidateListItem = (props)=>{
     return(
         
             <List dense={true}>
              
                 <ListItem>
                   <ListItemText
-                    primary="Candidato1"
+                    primary={props.candidate.name}
                   />
                 <Grid item xs={4} >
                     <CheckIcon />

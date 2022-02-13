@@ -31,7 +31,7 @@ function App() {
               <Route exact path='/login' element={<LoginPage/>}/>
               <Route exact path='/cadastro' element={<Application/>}/>
               <Route exact path='/criar-viagem' element={<CreateTripPage/>}/>
-              <Route exact path='/detalhes-viagens' element={<TripDetailPage/>}/>
+              <Route exact path='/detalhes-viagens/:tripId' element={<TripDetailPage/>}/>
               <Route exact path='/lista-viagem' element={<TripListPage/>}/>
               
             </Routes> 

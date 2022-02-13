@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PageTitle from "../../components/PageTitle";
 import { TextField, Button } from "@material-ui/core";
-import {FormContainer} from "../../components/FormContainer/styles";
+import {FormContainer} from './styles';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';

@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 import PageTitle from "../../components/PageTitle";
 import CandidateList from "./CandidateList";
 import { ContentContainer } from "./styles";
 import TripInfo from "./TripInfo";
+import axios from "axios";
 
 const TripPage =()=>{
     const trip = {
@@ -15,7 +16,9 @@ const TripPage =()=>{
         "candidates": []
         }
 
-    
+        useEffect(()=>{
+            axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/helany-johnson/trip/id`)
+        },[])
         
     
     return(
@@ -23,7 +26,7 @@ const TripPage =()=>{
             <PageTitle fontSize={{width:30}} title={'DETALHES DA VIAGEM'}/>
                 <ContentContainer>
                 <TripInfo info={trip}/>
-                <CandidateList candidates={trip.candidates}/>
+                <CandidateList candidates={trip}/>
                 </ContentContainer>
         </div>
     )

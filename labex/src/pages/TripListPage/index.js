@@ -11,7 +11,7 @@ const TripListPage =()=>{
             <Typography variant='h5' align={'center'}>LISTA DE VIAGENS</Typography>
               <Typography align={"center"}>
                 {trips.map((trip)=>{
-                  return<Link to={'/detalhes-viagens'}>
+                  return<Link to={`/detalhes-viagens/${trip.id}`}>
                     <ul>
                       {trip.name}
                       </ul>

@@ -8,7 +8,7 @@ import CandidateListItem from "../../pages/TripDetailPage/CadidateListItem";
 
 
 
-const CandidateList =()=>{
+const CandidateList =(props)=>{
     return(
         <>
         
@@ -18,13 +18,12 @@ const CandidateList =()=>{
                    Lista de Candidatos
                 </Typography>             
             </CardContent>
-            <CandidateListItem/>
-            <CandidateListItem/>
-            <CandidateListItem/>
-            <CandidateListItem/>
-            <CandidateListItem/>
-        
-      
+            <List>
+                {props.candidates.map(candidate =>{
+                    return<CandidateListItem candidate={candidate}/>
+                })}
+
+            </List>
         </Card>
 
     </>

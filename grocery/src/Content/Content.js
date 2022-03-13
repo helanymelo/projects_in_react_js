@@ -22,6 +22,9 @@ function Content() {
             item: 'cocoa'
         },
     ])
+
+    const [newItem, setNewItem] = useState()
+    
     
     const handleCheck = (id) =>{
         const listItems = items.map((item)=> item.id === id ? { ...item, 
@@ -32,14 +35,16 @@ function Content() {
     }
 
     const handleDelete = (id) =>{
-        const listItems = items.filter((item) => item.id !== id)
+        // const listItems = items.filter((item) => item.id !== id)
+        const listItems = items.filter((item)=> item.id !== id)
         console.log(listItems)
         setItems(listItems)
         localStorage.setItem('shoppingList', JSON.stringify(listItems))
     }
 
-    
-    
+    const handleSubmit = (e) =>{
+        console.log('Submitted')
+    }
 
     return (
         <main>
@@ -60,9 +65,10 @@ function Content() {
 
 
                             <FaTrashAlt 
-                            onClick={() => handleDelete(item.id)}
-                            role='button' 
-                            tabIndex={"0"}/>
+                                onClick={() => handleDelete(item.id)}
+                                role='button' 
+                                tabIndex={"0"}
+                             />
                             
                         </li>
                     ))}

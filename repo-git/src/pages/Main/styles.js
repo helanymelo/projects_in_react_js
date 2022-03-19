@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.Container`
+export const Container = styled.div`
     max-width: 700px ;
     background: #FFF ;
     border-radius: 4px ;
@@ -10,13 +10,18 @@ export const Container = styled.Container`
 
     h1{
         font-size:20px;
+        color:#0D2636;
         display:flex;
         align-items:center ;
         flex-direction:row ;
+
+    svg{
+        margin-right: 10px;
+        }
     }
 
 
-`
+`;
 
 export const Form = styled.form`
     margin-top:30px;
@@ -27,13 +32,16 @@ export const Form = styled.form`
         flex:1 ;
         border:1px solid #DDD ;
         padding:10px 15px ;
+        color:#000;
 
     }
     
 
-`
+`;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled.button.attrs({
+    type:'submit'
+})`
     background:#0D2636 ;
     border:0;
     border-radius:4px ;
@@ -42,4 +50,4 @@ export const SubmitButton = styled.button`
     justify-content:center ;
     align-items:center ;
 
-`
+`;

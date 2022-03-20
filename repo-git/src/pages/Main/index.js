@@ -17,7 +17,7 @@ function Main() {
 
         const response = api.get(`repos/${newRepo}`)
         const data = {
-            name: response.data.full_name,
+            name: response.data.full_name
         }
 
         setRepositorio([...repositorios, data])

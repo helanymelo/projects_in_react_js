@@ -1,8 +1,12 @@
 import React from 'react'
 
-function Repositorio() {
+function Repositorio({match}) {
   return (
-    <h1>Repositorio</h1>
+    <h1 style={{color:'#FFF'}}>
+    REPO
+    {match.params.repositorio}
+    </h1>
+    
   )
 }
 

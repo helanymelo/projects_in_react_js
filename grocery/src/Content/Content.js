@@ -1,40 +1,20 @@
-import { FaTrashAlt } from  'react-icons/fa';
+import ItemList from "../ItemList/ItemList"
 
-
-function Content({items, setItems, handleCheck, handleDelete}) {
-   
-
-    
+function Content({items, handleCheck, handleDelete}) {
     return (
         <main>
            {items.length ? (
-                <ul>
-                    {items.map((item)=>(
-                        <li className='item' key={item.id}>
-                            <input
-                                type="checkbox"
-                                checked={item.checked}
-                                onChange={() => handleCheck(item.id)}
-                            />
-                            <label 
-                                style={(item.checked) ? {textDecoration:'line-through'} : null}
-                                onDoubleClick={() => handleCheck(item.id)}>
-                                {item.item}
-                            </label>
+            
+            <ItemList
+                items={items}
+                handleCheck={handleCheck}
+                handleDelete={handleDelete}
+            />
 
-
-                            <FaTrashAlt 
-                                onClick={() => handleDelete(item.id)}
-                                role='button' 
-                                tabIndex={"0"}
-                             />
-                            
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                 <p>Sua lista está vazia</p>
-            )}
+            
+                ) : (
+                    <p>Sua lista está vazia</p>
+                )}
                     
                       
         </main>

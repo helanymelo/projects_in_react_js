@@ -54,10 +54,10 @@ const [newItem, setNewItem] = useState()
     <div className="App">
       <Header />
       <Content 
-      items={items}
-      setItems = {setItems}
-      handleCheck={handleCheck}
-      handleDelete={handleDelete}
+        items={items}
+        setItems = {setItems}
+        handleCheck={handleCheck}
+        handleDelete={handleDelete}
 
       />
       <Footer length={items.length}

@@ -1,9 +1,22 @@
-import React from 'react'
+import ItemList from "../ItemList/ItemList"
 
-function Content() {
+function Content({items, handleCheck, handleDelete}) {
     return (
         <main>
+           {items.length ? (
             
+            <ItemList
+                items={items}
+                handleCheck={handleCheck}
+                handleDelete={handleDelete}
+            />
+
+            
+                ) : (
+                    <p>Sua lista está vazia</p>
+                )}
+                    
+                      
         </main>
     )
 }
